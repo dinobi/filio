@@ -1,0 +1,6 @@
+<%= form_with model: @work_sample, local: true, id: "new"  do |form| %>
+  <%= form.text_field :name %><br><br>
+  <%= form.text_area :content %><br><br>
+  <%= form.file_field :files, multiple: true %><br>
+  <%= form.submit %>
+<% end %>
