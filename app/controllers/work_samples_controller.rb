@@ -15,8 +15,7 @@ class WorkSamplesController < ApplicationController
     work_sample = WorkSample.new(work_sample_params)
 
     if work_sample.save
-      work_sample.update_attributes!("published_at", Time.now) if params[:commit] == "Publish"
-      work_sample.files.attach(work_sample_params[:files])
+      work_sample.file.attach(work_sample_params[:file])
       redirect_to work_sample_path(work_sample)
       flash[:notice] = "Work sample was successfully created"
     else
@@ -44,6 +43,6 @@ class WorkSamplesController < ApplicationController
   end
 
   def work_sample_params
-    params.require(:work_sample).permit(:name, :content, :status, :created, files: [])
+    params.require(:work_sample).permit(:name, :content, :status, :created, :file)
   end
 end

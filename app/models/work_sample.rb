@@ -1,14 +1,10 @@
 class WorkSample < ApplicationRecord
-  has_one_attached :image
+  has_one_attached :file
   before_destroy :remove_attachments
-
-  # This will return the image selected by the user
-  # for work sample cover
-  def cover_image; end
 
   private
 
   def remove_attachments
-    files.purge
+    file.purge
   end
 end
