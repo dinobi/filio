@@ -2,7 +2,7 @@ class WorkSamplesController < ApplicationController
   before_action :set_work_sample, only: %i[show]
 
   def index
-    WorkSample.all
+    WorkSample.with_attached_file
   end
 
   def new
@@ -29,6 +29,8 @@ class WorkSamplesController < ApplicationController
     redirect_to work_samples_path
     flash[:notice] = "#{@work_sample.name} was archived"
   end
+
+  def restore; end
 
   def destroy
     @work_sample.destroy
