@@ -1,3 +1,106 @@
 // Place all the styles related to the work_samples controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'base';
+
+#work-sample {
+  background: $primary-background;
+  min-width: 340px;
+  min-height: 92vh;
+  padding: 0;
+  color: black;
+  .path-info {
+    display: block;
+    height: 3rem;
+    line-height: 3rem;
+    border-bottom: 1px solid $box-shadow;
+    padding: 0 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    span.path {
+      float: left;
+      span {
+        padding-right: .5rem;
+      }
+    }
+  }
+  .work-sample-form {
+    background: $white;
+    margin: 2rem;
+    border-radius: 5px;
+    border: 1px solid $box-shadow;
+    min-height: 70rem;
+    .title {
+      padding: 2rem;
+      font-weight: bold;
+      border-bottom: 1px solid $box-shadow;
+      text-align: left;
+    }
+    form {
+      width: 80%;
+      padding: 20px 40px;
+      label {
+        color: 424242;
+      }
+      input {
+        height: 40px;
+        line-height: 40px;
+        font-size: 14px;
+        &:focus {
+          border: 1px solid $green !important;
+          box-shadow: 0 0px 6px $green !important;
+          background: $white;
+        }
+      }
+      textarea {
+        font-size: 14px;
+        &:focus {
+          border: 1px solid $green;
+          box-shadow: 0 0px 6px $green !important;
+          background: $white;
+        }
+      }
+      input[type=file] {
+        border: 2px;
+        width: 48%;
+        float: left;
+        border: 1px solid $box-shadow;
+        border-radius: 2px;
+        &:focus {
+          border: 1px solid $green;
+          box-shadow: 0 0px 6px $green !important;
+          background: $white;
+        }
+      }
+      input[type=submit] {
+        min-width: 15rem;
+        height: 40px; 
+        line-height: 40px;
+        padding-left: 14px;
+        padding-right: 14px;
+        border-radius: 2px;
+        border: 1px solid $box-shadow;
+        font-family: $primary-font;
+        font-size: 14px;
+        font-weight: bold;
+        color: $white;
+        background: $green;
+        border: 1px solid $green;
+        float: right;
+        transition: 0.2s ease-in-out;
+        &:hover, &:focus {
+          background: $blue;
+          border: 1px solid $blue;
+          transition: 0.2s ease-in-out;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  #worsksample {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
