@@ -1,8 +1,9 @@
 %header#header
   %nav.main-nav
-    %span.header-logo Filio
+    %span.header-logo
+      =link_to "Filio", index_path
     %ul.right.app-menu.hide-on-small
       %li.nav-item
-        = link_to "Home", work_samples_path
+        = link_to "Home", index_path
       %li.nav-item
         = link_to "Work Samples", work_samples_path

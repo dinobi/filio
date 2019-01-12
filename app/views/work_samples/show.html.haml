@@ -6,12 +6,13 @@
       %span
         %i.fa.fa-chevron-right
       %span=@work_sample.name
+    =link_to "Create work sample", new_work_sample_path, class: "create-link"
   .info
     %h5=@work_sample.name
   .work-sample-content
     .tiles.tile-description
       .title Description
-      .content
+      .content.description
         - if @work_sample.content.present?
           = @work_sample.content
         - else
@@ -19,7 +20,7 @@
     .tiles.tile-document
       .title Document Uploads
       - if @work_sample.files.attached?
-        .content
+        .content.document
           - @work_sample.files.each do |file|
             - if file.image?
               %span.image-frame

@@ -15,7 +15,7 @@ class WorkSamplesController < ApplicationController
     @work_sample = WorkSample.new(work_sample_params)
 
     if @work_sample.save
-      # redirect_to work_sample_path(@work_sample)
+      redirect_to work_sample_path(@work_sample)
       flash[:notice] = "Work sample was successfully created"
     else
       render :new
