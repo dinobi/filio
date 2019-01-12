@@ -1,0 +1,32 @@
+@import 'base';
+
+.filio-btn-responsive {
+  display: inline-block;
+  margin: 15px auto;
+  min-width: 15rem;
+  height: 4rem; 
+  line-height: 4rem;
+  padding-top: 3px;
+  padding-left: 14px;
+  padding-right: 14px;
+  border-radius: 2px;
+  border: 1px solid $box-shadow;
+  font-family: $primary-font;
+  font-size: 2rem;
+  box-shadow: 0 0 12px $box-shadow;
+}
+
+.filio-btn {
+  display: inline-block;
+  margin: 15px auto;
+  min-width: 150px;
+  height: 40px; 
+  line-height: 40px;
+  padding-left: 14px;
+  padding-right: 14px;
+  border-radius: 2px;
+  border: 1px solid $box-shadow;
+  font-family: $primary-font;
+  font-size: 16px;
+  font-weight: bold;
+}
