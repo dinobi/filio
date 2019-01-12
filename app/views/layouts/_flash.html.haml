@@ -1,0 +1,3 @@
+.flash-container
+  - flash.each do |key, value|
+    .alert{class: "alert-#{key}"}= value

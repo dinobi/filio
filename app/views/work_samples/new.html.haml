@@ -1,0 +1,24 @@
+#work-sample
+  .path-info
+    %span.path
+      %span
+        =link_to @work_sample.class, work_samples_path
+      %span
+        %i.fa.fa-chevron-right
+      %span Create Work Sample
+  %section.work-sample-form
+    .title
+      %h6 Create Work Sample
+    .body
+      =form_with model: @work_sample, local: true, id: :global do |form|
+        .field.group
+          %label Name
+          =form.text_field :name, id: :name, placeholder: 'enter name of work sample '
+        .field.group
+          %label Description
+          =form.text_area :content, id: :content, placeholder: 'describe the nature of work sample'
+        .field.group
+          %span.empty
+          %span.actions
+            =form.file_field :file, id: :file
+            =form.submit
