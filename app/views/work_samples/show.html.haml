@@ -17,15 +17,16 @@
         - else
           %i This work sample has no description
     .tiles.tile-document
-      .title Document Upload
-      - if @work_sample.file.attached?
+      .title Document Uploads
+      - if @work_sample.files.attached?
         .content
-          - if @work_sample.file.image?
-            = link_to image_tag(@work_sample.file, width: 500), @work_sample.file
-          - elsif @work_sample.file.representable?
-            = link_to image_tag(@work_sample.file.representation(resize: '500x500')), @work_sample.file
-        .footer-links
-          = link_to "Download", rails_blob_path(@work_sample.file, disposition: :attachment)
+          - @work_sample.files.each do |file|
+            - if file.image?
+              %span.image-frame
+                = link_to image_tag(file, width: 150), file
+                = link_to "Download", rails_blob_path(file, disposition: :attachment), class: "download-link"
+            - elsif file.representable?
+              = link_to image_tag(file.representation(resize: '500x500')), file
       - else
         .content
           %i This work sample has no document upload

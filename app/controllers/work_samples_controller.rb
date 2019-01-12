@@ -12,15 +12,14 @@ class WorkSamplesController < ApplicationController
   def show; end
 
   def create
-    work_sample = WorkSample.new(work_sample_params)
+    @work_sample = WorkSample.new(work_sample_params)
 
-    if work_sample.save
-      work_sample.file.attach(work_sample_params[:file])
-      redirect_to work_sample_path(work_sample)
+    if @work_sample.save
+      # redirect_to work_sample_path(@work_sample)
       flash[:notice] = "Work sample was successfully created"
     else
       render :new
-      flash[:warning] = work_sample.errors
+      flash[:warning] = @work_sample.errors
     end
   end
 
@@ -45,6 +44,6 @@ class WorkSamplesController < ApplicationController
   end
 
   def work_sample_params
-    params.require(:work_sample).permit(:name, :content, :status, :created, :file)
+    params.require(:work_sample).permit(:name, :content, :status, :created, files: [])
   end
 end
