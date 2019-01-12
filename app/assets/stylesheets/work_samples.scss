@@ -72,7 +72,7 @@
           background: $white;
         }
       }
-      input[type=file], .direct-upload {
+      input[type=file] {
         border: 2px;
         width: 48%;
         float: left;
@@ -84,20 +84,24 @@
           background: $white;
         }
       }
+      //--> Direct Upload
       .direct-upload {
-        position: absolute;
-        z-index: 200;
-        padding: 0 2rem;
-        color: $white;
+        display: inline-block;
+        position: relative;
+        padding: 2px 4px;
+        margin: 0 3px 3px 0;
+        border-radius: 3px;
+        font-size: 11px;
+        line-height: 13px;
       }
       .direct-upload__filename {
-        position: relative;
-        z-index: 200;
         color: $white;
+        position: relative;
+        z-index: 100;
       }
        
       .direct-upload--pending {
-        background: $light-blue;
+        background: $yellow;
       }
        
       .direct-upload__progress {
@@ -109,13 +113,20 @@
         transition: width 500ms ease-out, opacity 60ms 60ms ease-in;
         transform: translate3d(0, 0, 0);
       }
+       
+      .direct-upload--complete .direct-upload__progress {
+        background: $blue;
+      }
+       
       .direct-upload--error {
-        border-color: $red;
+        border-color: red;
       }
        
       input[type=file][data-direct-upload-url][disabled] {
-        display: block;
+        display: none;
       }
+      //<-- End of Direct Upload 
+
       input[type=submit] {
         min-width: 15rem;
         height: 40px; 
@@ -167,30 +178,29 @@
       }
       .content {
         min-height: 10rem;
-        padding: 2rem;
-        text-align: center;
-      }
-      .footer-links {
-        border-top: 1px solid $box-shadow;
-        height: 2rem;
-        line-height: 2rem;
-        width: 100%;
-        font-size: 1.2rem;
-        background: $green;
-        text-align: center;
-        font-weight: bold;
-        color: white;
-        transition: 0.5s ease-in-out;
-        &:hover {
-          transition: 0.5s ease-in-out;
-          cursor: pointer;
-          background: $blue;
-        }
-        a {
-          display: block;
-          width: 100%;
-          &:hover {
+        padding: 1rem;
+        .image-frame {
+          display: inline-block;
+          text-align: center;
+          padding: 1rem;
+          a {
+            display: block;
+          }
+          a.download-link {
+            height: 2rem;
+            line-height: 2rem;
+            width: 100%;
+            font-size: 1.2rem;
+            background: $green;
+            text-align: center;
+            font-weight: bold;
             color: white;
+            transition: 0.5s ease-in-out;
+            &:hover {
+              transition: 0.5s ease-in-out;
+              cursor: pointer;
+              background: $blue;
+            }
           }
         }
       }
