@@ -1,34 +1,33 @@
 #work-sample
   .path-info
     %span.path
-      %span=@work_sample.class
+      %span
+        =link_to @work_sample.class, work_samples_path
       %span
         %i.fa.fa-chevron-right
       %span=@work_sample.name
-  %h3 Work Sample Detail
-  %h5
-    Name:
-    = @work_sample.name
-  - if @work_sample.file.attached?
-    = image_tag @work_sample.file
-  - else
-    %p No sample file attached yet
-  %section
-    %h5
-      %strong Description
-    %div
-      - if @work_sample.content.present?
-        = @work_sample.content
-      - else
-        %i This work sample has no
-
-    - if @work_sample.file.attached?
-      %p
-        %strong Files:
-        - if @work_sample.file.representable?
-          = link_to image_tag(@work_sample.file.representation(resize: '500x500')), @work_sample.file # opens in new browser tab
-          = link_to image_tag(@work_sample.file.representation(resize: '500x500')), rails_blob_path(@work_sample.file, disposition: :attachment) # downloads file
-        - elsif @work_sample.file.image?
-          = link_to image_tag(@work_sample.file, width: 500), @work_sample.file
+  .info
+    %h5=@work_sample.name
+  .work-sample-content
+    .tiles.tile-description
+      .title Description
+      .content
+        - if @work_sample.content.present?
+          = @work_sample.content
         - else
-          = link_to @work_sample.file.filename, @work_sample.file
+          %i This work sample has no description
+    .tiles.tile-document
+      .title Document Upload
+      - if @work_sample.file.attached?
+        .content
+          - if @work_sample.file.image?
+            = link_to image_tag(@work_sample.file, width: 500), @work_sample.file
+          - elsif @work_sample.file.representable?
+            = link_to image_tag(@work_sample.file.representation(resize: '500x500')), @work_sample.file
+        .footer-links
+          = link_to "Download", rails_blob_path(@work_sample.file, disposition: :attachment)
+      - else
+        .content
+          %i This work sample has no document upload
+        .footer-links Nothing to download
+

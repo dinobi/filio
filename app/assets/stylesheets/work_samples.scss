@@ -24,6 +24,18 @@
       }
     }
   }
+  .info {
+    display: block;
+    height: 10rem;
+    line-height: 12rem;
+    padding: 0 2rem;
+    background: $white;
+    border-bottom: 1px solid $box-shadow;
+    text-align: left;
+    h5 {
+      font-weight: bold;
+    }
+  }
   .work-sample-form {
     background: $white;
     margin: 2rem;
@@ -60,7 +72,7 @@
           background: $white;
         }
       }
-      input[type=file] {
+      input[type=file], .direct-upload {
         border: 2px;
         width: 48%;
         float: left;
@@ -71,6 +83,38 @@
           box-shadow: 0 0px 6px $green !important;
           background: $white;
         }
+      }
+      .direct-upload {
+        position: absolute;
+        z-index: 200;
+        padding: 0 2rem;
+        color: $white;
+      }
+      .direct-upload__filename {
+        position: relative;
+        z-index: 200;
+        color: $white;
+      }
+       
+      .direct-upload--pending {
+        background: $light-blue;
+      }
+       
+      .direct-upload__progress {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        background: $blue;
+        transition: width 500ms ease-out, opacity 60ms 60ms ease-in;
+        transform: translate3d(0, 0, 0);
+      }
+      .direct-upload--error {
+        border-color: $red;
+      }
+       
+      input[type=file][data-direct-upload-url][disabled] {
+        display: block;
       }
       input[type=submit] {
         min-width: 15rem;
@@ -90,9 +134,64 @@
         transition: 0.2s ease-in-out;
         &:hover, &:focus {
           background: $blue;
-          border: 1px solid $blue;
+          border: none;
           transition: 0.2s ease-in-out;
           box-shadow: none;
+        }
+      }
+    }
+  }
+
+  .work-sample-content {
+    display: flex;
+    min-height: 2rem;
+    .tile-description {
+      flex: 2
+    }
+    .tile-document {
+      flex: 3;
+    }
+    .tiles {
+      margin: 2rem;
+      background: $white;
+      border: 1px solid $box-shadow;
+      border-radius: 2px;
+      text-align: left;
+      .title {
+        background: $box-shadow;
+        height: 3rem;
+        line-height: 3rem;
+        padding: 0 2rem;
+        width: 100%;
+        font-size: 1.2rem;
+      }
+      .content {
+        min-height: 10rem;
+        padding: 2rem;
+        text-align: center;
+      }
+      .footer-links {
+        border-top: 1px solid $box-shadow;
+        height: 2rem;
+        line-height: 2rem;
+        width: 100%;
+        font-size: 1.2rem;
+        background: $green;
+        text-align: center;
+        font-weight: bold;
+        color: white;
+        transition: 0.5s ease-in-out;
+        &:hover {
+          transition: 0.5s ease-in-out;
+          cursor: pointer;
+          background: $blue;
+        }
+        a {
+          display: block;
+          width: 100%;
+          &:hover {
+            color: white;
+          }
         }
       }
     }
