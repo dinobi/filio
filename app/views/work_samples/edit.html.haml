@@ -1,0 +1,27 @@
+#work-sample
+  .path-info
+    %span.path
+      %span
+        =link_to @work_sample.class, work_samples_path
+      %span
+        %i.fa.fa-chevron-right
+      %span Edit Work Sample
+    =link_to "Create work sample", new_work_sample_path, class: "create-link"
+  %section.work-sample-form
+    .title
+      %h6 Edit Work Sample
+    .body
+      =render "form", work_sample: @work_sample
+
+    - if @work_sample.files.attached?
+      .attached-files
+        %span Attached Files
+        .attachments
+          - @work_sample.files.each do |file|
+            - if file.image?
+              = link_to image_tag(file, width: 40), file
+            - elsif file.representable?
+              = link_to image_tag(file.representation(resize: '100x100')), file
+    - else
+      .attached-files
+        %i This work sample has no document upload
