@@ -115,6 +115,8 @@ GEM
     ffi (1.10.0)
     figaro (1.1.1)
       thor (~> 0.14)
+    geckodriver-helper (0.23.0)
+      archive-zip (~> 0.7)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     gpgme (2.0.18)
@@ -347,6 +349,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   figaro
+  geckodriver-helper (~> 0.23.0)
   gpgme (~> 2.0, >= 2.0.13)
   haml-rails
   jbuilder (~> 2.5)

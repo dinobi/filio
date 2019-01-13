@@ -8,7 +8,7 @@ test:
 
 # Use Amazon S3 fpr production environment
 # gem "aws-sdk-s3", require: false
-production:
+amazon:
   service: S3
   access_key_id: <%= ENV['FILIO_AWS_ACCESS_KEY_ID'] %>
   secret_access_key: <%= ENV['FILIO_AWS_SECRET_ACCESS_KEY'] %>

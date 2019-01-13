@@ -33,13 +33,13 @@ class WorkSamplesController < ApplicationController
 
   def archive
     @work_sample.update_attributes!(is_archived: true)
-    redirect_to work_samples_path
+    redirect_to index_path
     flash[:notice] = "#{@work_sample.name} was archived"
   end
 
   def destroy
     @work_sample.destroy
-    redirect_to work_samples_path
+    redirect_to index_path
     flash[:notice] = "#{@work_sample.name} was deleted"
   end
 

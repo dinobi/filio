@@ -1,7 +1,6 @@
 // direct_uploads.js
 addEventListener("direct-download:initialize", event => {
   const { target, detail } = event
-  console.log(detail)
   const { id, file } = detail
 })
 
