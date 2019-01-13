@@ -42,5 +42,17 @@ module Filio
       g.javascripts     false
       # g.fixture_replacement :fabrication
     end
+
+    # Allows CORS
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins "*"
+
+        resource "/work_samples/*",
+          headers: :any,
+          methods: %i[post get patch put delete options head],
+          max_age: 0
+      end
+    end
   end
 end

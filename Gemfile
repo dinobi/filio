@@ -71,6 +71,7 @@ end
 
 group :test do
   gem "chromedriver-helper"
+  gem 'geckodriver-helper', '~> 0.23.0'
   gem "codeclimate-test-reporter", "~> 1.0.0"
   gem "database_cleaner"
   gem "rails-controller-testing"
