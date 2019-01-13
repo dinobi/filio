@@ -1,0 +1,13 @@
+
+=form_with model: @work_sample, local: true, id: :global do |form|
+  .field.group
+    %label Name
+    =form.text_field :name, id: :name, placeholder: 'enter name of work sample '
+  .field.group
+    %label Description
+    =form.text_area :content, id: :content, placeholder: 'describe the nature of work sample'
+  .field.group
+    %span.empty
+    %span.actions
+      =form.file_field :files, multiple: true, direct_upload: true
+      =form.submit

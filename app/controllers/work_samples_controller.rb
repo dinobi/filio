@@ -1,5 +1,5 @@
 class WorkSamplesController < ApplicationController
-  before_action :set_work_sample, only: %i[show]
+  before_action :set_work_sample, only: %i[show edit update]
 
   def index
     WorkSample.with_attached_file
@@ -10,6 +10,18 @@ class WorkSamplesController < ApplicationController
   end
 
   def show; end
+
+  def edit; end
+
+  def update
+    if @work_sample.update(work_sample_params)
+      redirect_to work_sample_path(@work_sample)
+      flash[:notice] = "Work sample was successfully updated"
+    else
+      render :new
+      flash[:warning] = @work_sample.errors
+    end
+  end
 
   def create
     @work_sample = WorkSample.new(work_sample_params)

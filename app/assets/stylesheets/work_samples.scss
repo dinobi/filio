@@ -25,6 +25,7 @@
     }
     .create-link {
       float: right;
+      margin-left: 2rem;
     }
   }
   .info {
@@ -153,6 +154,27 @@
           transition: 0.2s ease-in-out;
           box-shadow: none;
         }
+      }
+    }
+    .attached-files {
+      width: 80%;
+      padding: 1rem 40px;
+      margin: 0 auto;
+      span {
+        display: block;
+        width: 20%;
+        height: 40px;
+        line-height: 40px;
+        color: #bbb;
+        float: left;
+        text-align: right;
+        padding: 0 2rem;
+        }
+      .attachments {
+        width: 80%;
+        float: right;
+        padding: 0 2rem;
+        text-align: left;
       }
     }
   }
