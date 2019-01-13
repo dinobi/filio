@@ -1,3 +1,274 @@
 // Place all the styles related to the work_samples controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'base';
+
+#work-sample {
+  background: $primary-background;
+  min-width: 340px;
+  min-height: 92vh;
+  padding: 0;
+  color: black;
+  .path-info {
+    display: block;
+    height: 3rem;
+    line-height: 3rem;
+    border-bottom: 1px solid $box-shadow;
+    padding: 0 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    span.path {
+      float: left;
+      span {
+        padding-right: .5rem;
+      }
+    }
+    .create-link {
+      float: right;
+      margin-left: 2rem;
+    }
+  }
+  .info {
+    display: block;
+    height: 10rem;
+    line-height: 12rem;
+    padding: 0 2rem;
+    background: $white;
+    border-bottom: 1px solid $box-shadow;
+    text-align: left;
+    h5 {
+      font-weight: bold;
+    }
+  }
+  .work-sample-form {
+    background: $white;
+    margin: 2rem;
+    border-radius: 5px;
+    border: 1px solid $box-shadow;
+    min-height: 70rem;
+    .title {
+      padding: 2rem;
+      font-weight: bold;
+      border-bottom: 1px solid $box-shadow;
+      text-align: left;
+    }
+    form {
+      width: 80%;
+      padding: 20px 40px;
+      label {
+        color: 424242;
+      }
+      input {
+        height: 40px;
+        line-height: 40px;
+        font-size: 14px;
+        &:focus {
+          border: 1px solid $green !important;
+          box-shadow: 0 0px 6px $green !important;
+          background: $white;
+        }
+      }
+      textarea {
+        font-size: 14px;
+        min-height: 40px;
+        &:focus {
+          border: 1px solid $green;
+          box-shadow: 0 0px 6px $green !important;
+          background: $white;
+        }
+      }
+      input[type=file] {
+        border: 2px;
+        width: 48%;
+        float: left;
+        border: 1px solid $box-shadow;
+        border-radius: 2px;
+        &:focus {
+          border: 1px solid $green;
+          box-shadow: 0 0px 6px $green !important;
+          background: $white;
+        }
+      }
+      //--> Direct Upload
+      .direct-upload {
+        display: inline-block;
+        position: relative;
+        padding: 2px 4px;
+        margin: 0 3px 3px 0;
+        border-radius: 3px;
+        font-size: 11px;
+        line-height: 13px;
+      }
+      .direct-upload__filename {
+        color: $white;
+        position: relative;
+        z-index: 100;
+      }
+       
+      .direct-upload--pending {
+        background: $yellow;
+      }
+       
+      .direct-upload__progress {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        background: $blue;
+        transition: width 500ms ease-out, opacity 60ms 60ms ease-in;
+        transform: translate3d(0, 0, 0);
+      }
+       
+      .direct-upload--complete .direct-upload__progress {
+        background: $blue;
+      }
+       
+      .direct-upload--error {
+        border-color: red;
+      }
+       
+      input[type=file][data-direct-upload-url][disabled] {
+        display: none;
+      }
+      //<-- End of Direct Upload 
+
+      input[type=submit] {
+        min-width: 15rem;
+        height: 40px; 
+        line-height: 40px;
+        padding-left: 14px;
+        padding-right: 14px;
+        border-radius: 2px;
+        border: 1px solid $box-shadow;
+        font-family: $primary-font;
+        font-size: 14px;
+        font-weight: bold;
+        color: $white;
+        background: $green;
+        border: 1px solid $green;
+        float: right;
+        transition: 0.2s ease-in-out;
+        &:hover, &:focus {
+          background: $blue;
+          border: 1px solid $box-shadow;
+          transition: 0.2s ease-in-out;
+          box-shadow: none;
+        }
+      }
+    }
+    .attached-files {
+      width: 80%;
+      padding: 1rem 40px;
+      margin: 0 auto;
+      span {
+        display: block;
+        width: 20%;
+        height: 40px;
+        line-height: 40px;
+        color: #bbb;
+        float: left;
+        text-align: right;
+        padding: 0 2rem;
+        }
+      .attachments {
+        width: 80%;
+        float: right;
+        padding: 0 2rem;
+        text-align: left;
+      }
+    }
+  }
+
+  .work-sample-content {
+    display: flex;
+    min-height: 2rem;
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    justify-content: center;
+    .tile-description {
+      flex: 2
+    }
+    .tile-document {
+      flex: 3;
+    }
+    .tiles {
+      margin: 2rem;
+      background: $white;
+      border: 1px solid $box-shadow;
+      border-radius: 2px;
+      text-align: left;
+      .title {
+        background: $box-shadow;
+        height: 3rem;
+        line-height: 3rem;
+        padding: 0 2rem;
+        width: 100%;
+        font-size: 1.2rem;
+      }
+      .description {
+        padding: 2rem;
+        line-height: 2.4rem;
+      }
+      .document {
+        padding: 1rem;
+      }
+      .content {
+        min-height: 10rem;
+        .image-frame {
+          display: inline-block;
+          text-align: center;
+          padding: 1rem;
+          a {
+            display: block;
+          }
+          a.download-link {
+            height: 2rem;
+            line-height: 2rem;
+            width: 100%;
+            font-size: 1.2rem;
+            background: $green;
+            text-align: center;
+            font-weight: bold;
+            color: white;
+            transition: 0.5s ease-in-out;
+            &:hover {
+              transition: 0.5s ease-in-out;
+              cursor: pointer;
+              background: $blue;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: $break-point-ntablet) {
+  #work-sample {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    .work-sample-content {
+      display: flex;
+      flex-direction: column;
+      min-height: 2rem;
+      display: flex;
+      flex-grow: 1;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+
+      .tile-description {
+        flex: 1
+      }
+      .tile-document {
+        flex: 1;
+      }
+    }
+    .work-sample-form {
+      form {
+        width: 98%;
+        padding: 20px;
+      }
+    }
+  }
+}

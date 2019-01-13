@@ -1,0 +1,59 @@
+// --------------------------------------------------------------
+// This file contains all variable declarations, if any.
+// --------------------------------------------------------------
+
+// Colors
+$white: #FFF;
+$blue: #1E88E5;
+$red: #E53935;
+$yellow: #FDD835;
+$green: #43A047;
+$light-red: #FF8A80;
+$light-blue: #82B1FF;
+$light-green: #B9F6CA;
+$light-yellow: #FFE57F;
+$black: rgba(0 , 0, 0, .60);
+$primary-blue: rgb(6, 31, 47);
+$primary-background: #f3f5f7;
+$margin: 15px;
+
+
+// Margin
+$main-margin: 15px;
+
+// Dropdown
+$dropdown-shadow: 0 3px 12px rgba(27,31,35,0.15);
+
+// Profile
+$box-shadow: rgba(27,31,35,0.15);
+
+$shadow-opacity1: 0.2 !default;
+$shadow-opacity2: 0.14 !default;
+$shadow-opacity3: 0.12 !default;
+
+.with-shadow {
+  box-shadow: 0 0px 1px 0 rgba(150, 150, 150, $shadow-opacity1),
+              0 3px 1px -2px rgba(150, 150, 150, $shadow-opacity2),
+              0 1px 5px 0 rgba(150, 150, 150, $shadow-opacity3);
+}
+
+// Break point
+$break-point-smobile: 320px;
+$break-point-nmobile: 400px;
+$break-point-mmobile: 480px;
+$break-point-lmobile: 576px;
+$break-point-ntablet: 768px;
+$break-point-ltablet: 996px;
+$break-point-nnotebook: 1200px;
+$break-point-lnotebook: 1280px;
+$break-point-desktop: 1320px;
+
+// Buttons
+
+button {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+$logo: 'Timmana', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;

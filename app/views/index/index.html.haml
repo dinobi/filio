@@ -1,0 +1,22 @@
+.super-box
+  .box
+    .landing
+      .headline
+        %h1 Safe & Secure File Sharing Service
+        %p Upload, Download and Preview work samples from a single place
+        = link_to "Get Started", new_work_sample_path, class: "filio-btn get-started"
+      #work-samples
+        .work-sample-gallery
+          - if @work_samples.present?
+            - @work_samples.each do |s|
+              - if s.cover.image?
+                .work-sample-card
+                  =link_to image_tag(s.cover, height: 140, width: 140.583), work_sample_path(s)
+                  .footer=s.name
+              - elsif s.cover.representable?
+                .work-sample-card
+                  = link_to image_tag(file.representation(resize: '160x140')), work_sample_path(s)
+                  .footer=s.name
+          .work-sample-card
+            =link_to "", new_work_sample_path, class: "fa fa-plus fa-5x"
+            .footer Creat work sample

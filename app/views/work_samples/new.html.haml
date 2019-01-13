@@ -1,0 +1,13 @@
+#work-sample
+  .path-info
+    %span.path
+      %span
+        =link_to @work_sample.class, index_path
+      %span
+        %i.fa.fa-chevron-right
+      %span Create Work Sample
+  %section.work-sample-form
+    .title
+      %h6 Create Work Sample
+    .body
+      =render "form", work_sample: @work_sample

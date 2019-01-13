@@ -1,28 +1,35 @@
-%section.super-box
-  %h3 Work Sample Detail
-  %h5
-    Name:
-    = @work_sample.name
-  - if @work_sample.file.attached?
-    = image_tag @work_sample.file
-  - else
-    %p No sample file attached yet
-  %section
-    %h5
-      %strong Description
-    %div
-      - if @work_sample.content.present?
-        = @work_sample.content
-      - else
-        %i This work sample has no
-
-    - if @work_sample.file.attached?
-      %p
-        %strong Files:
-        - if @work_sample.file.representable?
-          = link_to image_tag(@work_sample.file.representation(resize: '500x500')), @work_sample.file # opens in new browser tab
-          = link_to image_tag(@work_sample.file.representation(resize: '500x500')), rails_blob_path(@work_sample.file, disposition: :attachment) # downloads file
-        - elsif @work_sample.file.image?
-          = link_to image_tag(@work_sample.file, width: 500), @work_sample.file
+#work-sample
+  .path-info
+    %span.path
+      %span
+        =link_to @work_sample.class, index_path
+      %span
+        %i.fa.fa-chevron-right
+      %span=@work_sample.name
+    =link_to "Edit work sample", edit_work_sample_path, class: "create-link"
+    =link_to "Create work sample", new_work_sample_path, class: "create-link"
+  .info
+    %h5=@work_sample.name
+  .work-sample-content
+    .tiles.tile-description
+      .title Description
+      .content.description
+        - if @work_sample.content.present?
+          = @work_sample.content
         - else
-          = link_to @work_sample.file.filename, @work_sample.file
+          %i This work sample has no description
+    .tiles.tile-document
+      .title Document Uploads
+      - if @work_sample.files.attached?
+        .content.document
+          - @work_sample.files.each do |file|
+            - if file.image?
+              %span.image-frame
+                = link_to image_tag(file, width: 150), file
+                = link_to "Download", rails_blob_path(file, disposition: :attachment), class: "download-link"
+            - elsif file.representable?
+              = link_to image_tag(file.representation(resize: '500x500')), file
+      - else
+        .content
+          %i This work sample has no document upload
+
