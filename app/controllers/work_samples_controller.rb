@@ -1,12 +1,20 @@
 class WorkSamplesController < ApplicationController
   before_action :set_work_sample, only: %i[show edit update]
 
-  def index
-    WorkSample.with_attached_file
-  end
-
   def new
     @work_sample = WorkSample.new
+  end
+
+  def create
+    @work_sample = WorkSample.new(work_sample_params)
+
+    if @work_sample.save
+      redirect_to work_sample_path(@work_sample)
+      flash[:success] = "#{@work_sample.name} was successfully created"
+    else
+      render :new
+      flash[:error] = @work_sample.errors.full_messages.to_sentence
+    end
   end
 
   def show; end
@@ -16,22 +24,10 @@ class WorkSamplesController < ApplicationController
   def update
     if @work_sample.update(work_sample_params)
       redirect_to work_sample_path(@work_sample)
-      flash[:notice] = "Work sample was successfully updated"
+      flash[:notice] = "#{@work_sample.name} was successfully updated"
     else
-      render :new
-      flash[:warning] = @work_sample.errors
-    end
-  end
-
-  def create
-    @work_sample = WorkSample.new(work_sample_params)
-
-    if @work_sample.save
-      redirect_to work_sample_path(@work_sample)
-      flash[:notice] = "Work sample was successfully created"
-    else
-      render :new
-      flash[:warning] = @work_sample.errors
+      redirect_to edit_work_sample_path(@work_sample)
+      flash[:warning] = @work_sample.errors.full_messages.to_sentence
     end
   end
 
@@ -41,13 +37,13 @@ class WorkSamplesController < ApplicationController
     flash[:notice] = "#{@work_sample.name} was archived"
   end
 
-  def restore; end
-
   def destroy
     @work_sample.destroy
     redirect_to work_samples_path
     flash[:notice] = "#{@work_sample.name} was deleted"
   end
+
+  def restore; end
 
   private
 

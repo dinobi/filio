@@ -16,7 +16,7 @@ gem "figaro"
 # Use SCSS for stylesheets
 gem "sass-rails", "~> 5.0"
 # Use haml
-gem 'haml-rails'
+gem "haml-rails"
 # Use Uglifier as compressor for JavaScript assets
 gem "uglifier", ">= 1.3.0"
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -45,7 +45,7 @@ gem "net-sftp"
 
 # File sharing service
 gem "aws-sdk-s3", require: false
-gem 'mini_magick', '~> 4.8'
+gem "mini_magick", "~> 4.8"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

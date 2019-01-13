@@ -55,6 +55,7 @@ body {
 }
 #header {
   background: $primary-blue;
+  border-bottom: 1px solid $black;
   height: 40px;
   line-height: 40px;
   padding: 0 2rem;
@@ -86,6 +87,9 @@ body {
       }
     }
   }
+}
+#footer {
+  // border-top: 1px solid $black;
 }
 .super-box {
   display: block;

@@ -2,7 +2,7 @@
   .path-info
     %span.path
       %span
-        =link_to @work_sample.class, work_samples_path
+        =link_to @work_sample.class, index_path
       %span
         %i.fa.fa-chevron-right
       %span Edit Work Sample
@@ -15,7 +15,7 @@
 
     - if @work_sample.files.attached?
       .attached-files
-        %span Attached Files
+        %span Previous Files
         .attachments
           - @work_sample.files.each do |file|
             - if file.image?
