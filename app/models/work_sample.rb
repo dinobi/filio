@@ -1,13 +1,20 @@
 class WorkSample < ApplicationRecord
   has_many_attached :files
   before_destroy :remove_attachments
+  validates :name, presence: true, length: { minimum: 3 }, uniqueness: { case_sensitive: false }
   before_validation :remove_duplicates
 
-  private
+  attribute :is_archived, :boolean, default: false
 
   def remove_attachments
     files.purge
   end
+
+  def cover
+    files.take
+  end
+
+  private
 
   def attachments
     files.attachments
