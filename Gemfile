@@ -49,8 +49,6 @@ gem "mini_magick", "~> 4.8"
 
 # File processing
 gem 'image_processing', '~> 1.2'
-gem 'streamio-ffmpeg'
-gem 'poppler', '~> 3.0', '>= 3.0.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -64,6 +62,8 @@ group :development, :test do
   gem "pry-byebug"
   gem "rubocop", require: false
   gem 'rb-readline', '~> 0.5.3'
+  gem 'streamio-ffmpeg'
+  gem 'poppler', '~> 3.0', '>= 3.0.7'
 end
 
 group :development do
