@@ -51,6 +51,7 @@ gem "mini_magick", "~> 4.8"
 gem 'image_processing', '~> 1.2'
 gem 'streamio-ffmpeg'
 gem 'poppler', '~> 3.0', '>= 3.0.7'
+gem 'rsvg2', '~> 3.0.9'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
