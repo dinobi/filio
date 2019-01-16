@@ -47,7 +47,8 @@ body {
   font-size: 1.6rem;
   font-weight: normal;
   color: $white;
-  background: $primary-blue;
+  background-size: 40px;
+  background: image-url('components-background.png') repeat $primary-blue;
 	text-align: center;
   -webkit-font-smoothing: antialiased;
   text-size-adjust: 100%;

@@ -67,6 +67,12 @@ GEM
     bindex (0.5.0)
     builder (3.2.3)
     byebug (10.0.2)
+    cairo (1.16.2)
+      native-package-installer (>= 1.0.3)
+      pkg-config (>= 1.2.2)
+    cairo-gobject (3.3.1)
+      cairo (>= 1.16.2)
+      glib2 (= 3.3.1)
     capybara (2.18.0)
       addressable
       mini_mime (>= 0.1.3)
@@ -117,8 +123,15 @@ GEM
       thor (~> 0.14)
     geckodriver-helper (0.23.0)
       archive-zip (~> 0.7)
+    gio2 (3.3.1)
+      gobject-introspection (= 3.3.1)
+    glib2 (3.3.1)
+      native-package-installer (>= 1.0.3)
+      pkg-config (>= 1.2.2)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    gobject-introspection (3.3.1)
+      glib2 (= 3.3.1)
     gpgme (2.0.18)
       mini_portile2 (~> 2.3)
     haml (5.0.4)
@@ -139,6 +152,9 @@ GEM
       domain_name (~> 0.5)
     i18n (1.5.1)
       concurrent-ruby (~> 1.0)
+    image_processing (1.7.1)
+      mini_magick (~> 4.0)
+      ruby-vips (>= 2.0.13, < 3)
     io-like (0.3.0)
     jaro_winkler (1.5.2)
     jbuilder (2.8.0)
@@ -167,6 +183,7 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.11.3)
     multi_json (1.13.1)
+    native-package-installer (1.0.6)
     net-sftp (2.1.2)
       net-ssh (>= 2.6.5)
     net-ssh (5.1.0)
@@ -178,6 +195,10 @@ GEM
     parser (2.5.3.0)
       ast (~> 2.4.0)
     pg (1.1.3)
+    pkg-config (1.3.2)
+    poppler (3.3.1)
+      cairo-gobject (= 3.3.1)
+      gio2 (= 3.3.1)
     powerpack (0.1.2)
     pry (0.12.2)
       coderay (~> 1.1.0)
@@ -233,6 +254,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    rb-readline (0.5.5)
     redis (4.1.0)
     rest-client (2.0.2)
       http-cookie (>= 1.0.2, < 2.0)
@@ -264,6 +286,8 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.4.0)
     ruby-progressbar (1.10.0)
+    ruby-vips (2.0.13)
+      ffi (~> 1.9)
     ruby_dep (1.5.0)
     ruby_parser (3.12.0)
       sexp_processor (~> 4.9)
@@ -303,6 +327,8 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    streamio-ffmpeg (3.0.2)
+      multi_json (~> 1.8)
     temple (0.8.0)
     term-ansicolor (1.7.0)
       tins (~> 1.0)
@@ -352,11 +378,13 @@ DEPENDENCIES
   geckodriver-helper (~> 0.23.0)
   gpgme (~> 2.0, >= 2.0.13)
   haml-rails
+  image_processing (~> 1.2)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   mini_magick (~> 4.8)
   net-sftp
   pg (>= 0.18, < 2.0)
+  poppler (~> 3.0, >= 3.0.7)
   pry
   pry-byebug
   pry-doc
@@ -367,6 +395,7 @@ DEPENDENCIES
   rack-utf8_sanitizer
   rails (~> 5.2.0, >= 5.2.0)
   rails-controller-testing
+  rb-readline (~> 0.5.3)
   redis (~> 4.0)
   rspec-rails (~> 3.5)
   rubocop
@@ -377,6 +406,7 @@ DEPENDENCIES
   simplecov
   spring
   spring-watcher-listen (~> 2.0.0)
+  streamio-ffmpeg
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)

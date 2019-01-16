@@ -13,9 +13,13 @@
                 .work-sample-card
                   =link_to image_tag(s.cover, height: 140, width: 140.583), work_sample_path(s)
                   .footer=s.name
-              - elsif s.cover.representable?
+              - elsif s.cover.previewable?
                 .work-sample-card
-                  = link_to image_tag(file.representation(resize: '160x140')), work_sample_path(s)
+                  = link_to image_tag(s.cover.representation(resize: '160x140')), work_sample_path(s)
+                  .footer=s.name
+              - else
+                .work-sample-card
+                  = link_to image_tag(s.cover.preview(resize: '160x140')), work_sample_path(s)
                   .footer=s.name
           .work-sample-card
             =link_to "", new_work_sample_path, class: "fa fa-plus fa-5x"
