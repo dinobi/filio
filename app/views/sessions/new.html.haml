@@ -1,0 +1,13 @@
+#user
+  .path-info
+    %span.path
+      %span
+        =link_to @user.class, index_path
+      %span
+        %i.fa.fa-chevron-right
+      %span Login
+  %section.user-form
+    .title
+      %h6 Login
+    .body
+      =render "form", session: :session

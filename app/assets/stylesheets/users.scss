@@ -1,0 +1,104 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+// Place all the styles related to the work_samples controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'base';
+
+#user {
+  min-width: 340px;
+  min-height: 92vh;
+  padding: 0;
+  color: black;
+  .user-form {
+    background: $white;
+    max-width: 60%;
+    margin: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    border: 1px solid $box-shadow;
+    min-height: 70rem;
+    .title {
+      padding: 2rem;
+      font-weight: bold;
+      border-bottom: 1px solid $box-shadow;
+      text-align: left;
+    }
+    form {
+      width: 100%;
+      padding: 20px 6rem;
+      label {
+        color: 424242;
+      }
+      input {
+        height: 40px;
+        line-height: 40px;
+        font-size: 14px;
+        &:focus {
+          border: 1px solid $green !important;
+          box-shadow: 0 0px 6px $green !important;
+          background: $white;
+        }
+      }
+      textarea {
+        font-size: 14px;
+        min-height: 40px;
+        &:focus {
+          border: 1px solid $green;
+          box-shadow: 0 0px 6px $green !important;
+          background: $white;
+        }
+      }
+      input[type=file] {
+        border: 2px;
+        width: 48%;
+        float: left;
+        border: 1px solid $box-shadow;
+        border-radius: 2px;
+        &:focus {
+          border: 1px solid $green;
+          box-shadow: 0 0px 6px $green !important;
+          background: $white;
+        }
+      }
+
+      input[type=submit] {
+        min-width: 15rem;
+        height: 40px; 
+        line-height: 40px;
+        padding-left: 14px;
+        padding-right: 14px;
+        border-radius: 2px;
+        border: 1px solid $box-shadow;
+        font-family: $primary-font;
+        font-size: 14px;
+        font-weight: bold;
+        color: $white;
+        background: $green;
+        border: 1px solid $green;
+        float: right;
+        transition: 0.2s ease-in-out;
+        &:hover, &:focus {
+          background: $blue;
+          border: 1px solid $box-shadow;
+          transition: 0.2s ease-in-out;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: $break-point-ntablet) {
+  #work-sample {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    .work-sample-form {
+      form {
+        width: 98%;
+        padding: 20px;
+      }
+    }
+  }
+}
