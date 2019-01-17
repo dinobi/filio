@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if @user&.authenticate(session_params[:password])
       session["email"] = @user.email
       redirect_to index_path
-      flash[:notice] = "You login was successful"
+      flash[:success] = "You are now logged in"
     else
       redirect_to new_session_path
       flash[:warning] = "Email or password is incorrect"
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
   def destroy
     session["email"] = nil
     redirect_to index_path
-    flash[:success] = "You signed out successfully"
+    flash[:success] = "You are now logged out"
   end
 
   private
