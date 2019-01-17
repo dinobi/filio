@@ -4,4 +4,6 @@
       =link_to "Filio", index_path
     %ul.right.app-menu.hide-on-small
       %li.nav-item
-        = link_to "Login", new_session_path
+        =link_to current_user.email, index_path
+      %li.nav-item
+        =link_to "Logout", revoke_session_path

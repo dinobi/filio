@@ -8,6 +8,9 @@
 
   %body
     = render ("layouts/flash")
-    = render("layouts/header")
+    - if logged_in?
+      = render("layouts/auth_header")
+    - else
+      = render("layouts/header")
     = yield
     = render("layouts/footer")
