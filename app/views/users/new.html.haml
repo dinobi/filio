@@ -1,0 +1,13 @@
+#user
+  .path-info
+    %span.path
+      %span
+        =link_to @user.class, index_path
+      %span
+        %i.fa.fa-chevron-right
+      %span Create account
+  %section.user-form
+    .title
+      %h6 Create Account
+    .body
+      =render "form", user: @user

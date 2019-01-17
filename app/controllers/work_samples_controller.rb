@@ -1,12 +1,13 @@
 class WorkSamplesController < ApplicationController
   before_action :set_work_sample, only: %i[show edit update]
+  before_action :authorize, except: %i[show]
 
   def new
-    @work_sample = WorkSample.new
+    @work_sample = current_user.work_samples.new
   end
 
   def create
-    @work_sample = WorkSample.new(work_sample_params)
+    @work_sample = current_user.work_samples.new(work_sample_params)
 
     if @work_sample.save
       redirect_to work_sample_path(@work_sample)
