@@ -1,0 +1,15 @@
+
+=form_with model: @user, local: true, id: :global do |form|
+  .field.group
+    %label Email
+    =form.text_field :email, id: :email, placeholder: 'enter your email'
+  .field.group
+    %label Password
+    =form.password_field :password, id: :password, placeholder: 'enter your password'
+  .field.group
+    %label Confirm Password
+    =form.password_field :password_confirmation, id: :password_confirmation, placeholder: 're enter password'
+  .field.group
+    %span.empty
+    %span.actions
+      =form.submit :Signup
