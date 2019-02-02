@@ -9,7 +9,7 @@ class WorkSamplesController < ApplicationController
   def create
     @work_sample = current_user.work_samples.new(work_sample_params)
 
-    if @work_sample.save
+    if @work_sample.created?
       redirect_to work_sample_path(@work_sample)
       flash[:success] = "#{@work_sample.name} was successfully created"
     else
@@ -23,7 +23,7 @@ class WorkSamplesController < ApplicationController
   def edit; end
 
   def update
-    if @work_sample.update(work_sample_params)
+    if @work_sample.updated?(work_sample_params)
       redirect_to work_sample_path(@work_sample)
       flash[:notice] = "#{@work_sample.name} was successfully updated"
     else
