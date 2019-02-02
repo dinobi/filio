@@ -12,6 +12,18 @@ class WorkSample < ApplicationRecord
     files.purge
   end
 
+  def created?
+    with_lock do
+      save
+    end
+  end
+
+  def updated?(params)
+    with_lock do
+      update(params)
+    end
+  end
+
   def cover
     files.take
   end
